@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from itertools import islice
-
+import json
 
 # list to string
 
@@ -57,17 +57,38 @@ def getCommunityImages(soup):
     limit = int(len(soup.find_all(class_='item')) / 2)
     for i in islice(soup.find_all(class_='item'), limit):
         data.append(i.find('img').get('data-src'))
-
+    str=''
     for i in data:
-        data += i + ","
+        str += i + " "
 
-    return data[:-1]
+    return str[:-1]
 
 
 def getCommunityContent(soup):
-    content = soup.find('div', class_='section-content').get_text().strip()
-    print(content)
+    content = soup.select('#description')
+    str=''
+    for i in content:
+        str+=i.get_text().strip()+' '
 
+    st=str.replace('Is this your business?','')
+    return st[:-1]
+
+def getAverageReviewScore(soup):
+    return soup.find(class_='count text-title4').text.strip()
+
+def getCommunityAmenities(soup):
+    amenities=[]
+    str=""
+    for i in soup.find(class_='List-order').findAll('li')[1:]:
+        amenities.append(i.get_text())
+
+    for i in amenities:
+        str+=i+","
+
+    return str[:-1]
+
+def getAltTags(soup):
+    return 0
 
 def test(soup):
-    return 0
+    print(soup)
