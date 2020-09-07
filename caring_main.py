@@ -5,6 +5,15 @@ urls=df.values.tolist()
 
 
 
+#Page Requests
 
+soup=scraper.pageRequest('https://www.caring.com/senior-living/washington/seattle/providence-mount-st-vincent-assisted-living')
 
-scraper.test()
+print(scraper.pageTitle(soup))
+print(scraper.MetaDescription(soup))
+print(scraper.communityName(soup))
+print(scraper.getCommunityStreetAddress(soup))
+print(scraper.getCommunityCity(soup))
+print(scraper.getCommunityState(soup))
+print(scraper.getCommunityZipCode(soup))
+scraper.test(soup)
