@@ -93,8 +93,6 @@ def test(soup):
     tag=[]
     t=soup.find_all(class_="attribute-group")
     for i in t:
-        #print(i)
-        #break;
         data.append(i.find(class_='text-body').get_text().strip())
 
     return data
