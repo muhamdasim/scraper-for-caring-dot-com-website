@@ -3,11 +3,9 @@ import caring_scraper as scraper
 df=pd.read_csv('urls.csv')
 urls=df.values.tolist()
 
-
-
 #Page Requests
 
-soup=scraper.pageRequest('https://www.caring.com/senior-living/washington/seattle/providence-mount-st-vincent-assisted-living')
+soup=scraper.pageRequest('https://www.caring.com/senior-living/washington/seattle/merrill-gardens-at-first-hill-98101')
 
 print(scraper.pageTitle(soup))
 print(scraper.MetaDescription(soup))
@@ -19,3 +17,7 @@ print(scraper.getCommunityZipCode(soup))
 print(scraper.getCommunityImages(soup))
 print(scraper.getCommunityContent(soup))
 print(scraper.getAverageReviewScore(soup))
+print(scraper.getAltTags(soup))
+print(scraper.getImageTitle(soup))
+print("Testing Phase")
+bulk=scraper.test(soup)

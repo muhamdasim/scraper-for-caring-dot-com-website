@@ -76,19 +76,21 @@ def getCommunityContent(soup):
 def getAverageReviewScore(soup):
     return soup.find(class_='count text-title4').text.strip()
 
-def getCommunityAmenities(soup):
-    amenities=[]
-    str=""
-    for i in soup.find(class_='List-order').findAll('li')[1:]:
-        amenities.append(i.get_text())
-
-    for i in amenities:
-        str+=i+","
-
-    return str[:-1]
 
 def getAltTags(soup):
-    return 0
+    limit = int(len(soup.find_all(class_='item')) / 2)
+    for i in islice(soup.find_all(class_='item'), limit):
+        return i.find('img').get('alt')
+
+def getImageTitle(soup):
+    limit = int(len(soup.find_all(class_='item')) / 2)
+    for i in islice(soup.find_all(class_='item'), limit):
+        return i.find('img').get('title')
+
 
 def test(soup):
-    print(soup)
+    t=soup.find_all(class_="attribute-group")
+    for i in t:
+        print(i.find(class_='text-body').get_text().strip())
+
+    return 0
