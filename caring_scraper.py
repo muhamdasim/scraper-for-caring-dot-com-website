@@ -89,8 +89,12 @@ def getImageTitle(soup):
 
 
 def test(soup):
+    data=[]
+    tag=[]
     t=soup.find_all(class_="attribute-group")
     for i in t:
-        print(i.find(class_='text-body').get_text().strip())
+        #print(i)
+        #break;
+        data.append(i.find(class_='text-body').get_text().strip())
 
-    return 0
+    return data
