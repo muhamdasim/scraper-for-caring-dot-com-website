@@ -48,8 +48,22 @@ print(scraper.getAltTags(soup))
 print(scraper.getImageTitle(soup))
 print(scraper.getCommunityContent(soup))
 print(scraper.getAverageReviewScore(soup))
-
-print("Testing Phase")
 bulk=scraper.test(soup)
 for i in bulk:
-    print(i)
+    if i=="Costs":
+        for k in soup.findAll(class_="attribute-group"):
+            if k.find(class_='text-body').get_text().strip()==i:
+                for z in k.findAll('li'):
+                    costs.append(z.get_text().strip())
+
+    elif i=="ROOM AND HOUSING OPTIONS":
+        for k in soup.findAll(class_="attribute-group"):
+            if k.find(class_='text-body').get_text().strip()==i:
+                for z in k.findAll('li'):
+                    roomHousingOptions.append(z.get_text().strip())
+
+    elif i=="Dining options":
+        for k in soup.findAll(class_="attribute-group"):
+            if k.find(class_='text-body').get_text().strip()==i:
+                for z in k.findAll('li'):
+                    diningOptions.append(z.get_text().strip())
