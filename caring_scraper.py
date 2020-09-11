@@ -94,22 +94,20 @@ def getCosts(soup):
             for j in i.findAll('li'):
                 dt.append(j.get_text().strip())
             return (listToString(dt))
-        else:
-            return -1
 
     return -1
 
 def getROOMANDHOUSINGOPTIONS(soup):
     for i in soup.find_all(class_='attribute-group'):
         if i.find('h4').get_text().strip() == "Room and housing options":
+
             dt = []
             for j in i.findAll('li'):
                 dt.append(j.get_text().strip())
 
 
             return (listToString(dt))
-        else:
-            return -1
+
 
     return -1
 
@@ -121,8 +119,7 @@ def getDiningOptions(soup):
                 dt.append(j.get_text().strip())
 
             return (listToString(dt))
-        else:
-            return -1
+
 
     return -1
 
@@ -134,8 +131,7 @@ def getFeatures(soup):
                 dt.append(j.get_text().strip())
 
             return (listToString(dt))
-        else:
-            return -1
+
 
     return -1
 
@@ -147,8 +143,7 @@ def getCleaningServices(soup):
                 dt.append(j.get_text().strip())
 
             return (listToString(dt))
-        else:
-            return -1
+
 
     return -1
 
@@ -160,8 +155,7 @@ def getTechnologyAndEntertainment(soup):
                 dt.append(j.get_text().strip())
 
             return (listToString(dt))
-        else:
-            return -1
+
 
     return -1
 
@@ -173,8 +167,7 @@ def getHealthServices(soup):
                 dt.append(j.get_text().strip())
 
             return (listToString(dt))
-        else:
-            return -1
+
 
     return -1
 
@@ -186,8 +179,7 @@ def getActivities(soup):
                 dt.append(j.get_text().strip())
 
             return (listToString(dt))
-        else:
-            return -1
+
 
     return -1
 
@@ -199,8 +191,7 @@ def getFinancialGuidance(soup):
                 dt.append(j.get_text().strip())
 
             return (listToString(dt))
-        else:
-            return -1
+
 
     return -1
 
@@ -212,8 +203,7 @@ def getGuestServices(soup):
                 dt.append(j.get_text().strip())
 
             return (listToString(dt))
-        else:
-            return -1
+
 
     return -1
 
@@ -225,8 +215,7 @@ def getLanguages(soup):
                 dt.append(j.get_text().strip())
 
             return (listToString(dt))
-        else:
-            return -1
+
 
     return -1
 
@@ -238,8 +227,7 @@ def getGeneral(soup):
                 dt.append(j.get_text().strip())
 
             return (listToString(dt))
-        else:
-            return -1
+
 
     return -1
 
@@ -251,7 +239,29 @@ def getTypesOfCare(soup):
                 dt.append(j.get_text().strip())
 
             return (listToString(dt))
-        else:
-            return -1
+
+    return -1
+
+def getTrainingAreas(soup):
+    for i in soup.find_all(class_='attribute-group'):
+        if i.find('h4').get_text().strip() == "Training Areas":
+            dt = []
+            for j in i.findAll('li'):
+                dt.append(j.get_text().strip())
+
+            return (listToString(dt))
+
+
+    return -1
+
+def getLicenses(soup):
+    for i in soup.find_all(class_='attribute-group'):
+        if i.find('h4').get_text().strip() == "Licenses":
+            dt = []
+            for j in i.findAll('li'):
+                dt.append(j.get_text().strip())
+
+            return (listToString(dt))
+
 
     return -1

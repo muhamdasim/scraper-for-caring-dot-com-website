@@ -56,19 +56,14 @@ for i in urls:
     averageReviewScore.append(scraper.getAverageReviewScore(soup))
     roomHousingOptions.append(scraper.getROOMANDHOUSINGOPTIONS(soup))
 
-    for i in soup.find_all(class_='attribute-group'):
-        print(i.find(class_='text-body').get_text().strip())
 
-
-    costs.append(scraper.getCosts(soup))
 
     counter += 1
     if counter == 1:
         break
 
-
-
-for i in costs:
+print(len(roomHousingOptions))
+for i in roomHousingOptions:
     print(i)
 
 
