@@ -87,12 +87,171 @@ def getImageTitle(soup):
     for i in islice(soup.find_all(class_='item'), limit):
         return i.find('img').get('title')
 
+def getCosts(soup):
+    for i in soup.find_all(class_='attribute-group'):
+        if i.find('h4').get_text().strip() == "Costs":
+            dt = []
+            for j in i.findAll('li'):
+                dt.append(j.get_text().strip())
+            return (listToString(dt))
+        else:
+            return -1
 
-def test(soup):
-    data=[]
-    tag=[]
-    t=soup.find_all(class_="attribute-group")
-    for i in t:
-        data.append(i.find(class_='text-body').get_text().strip())
+    return -1
 
-    return data
+def getROOMANDHOUSINGOPTIONS(soup):
+    for i in soup.find_all(class_='attribute-group'):
+        if i.find('h4').get_text().strip() == "Room and housing options":
+            dt = []
+            for j in i.findAll('li'):
+                dt.append(j.get_text().strip())
+
+
+            return (listToString(dt))
+        else:
+            return -1
+
+    return -1
+
+def getDiningOptions(soup):
+    for i in soup.find_all(class_='attribute-group'):
+        if i.find('h4').get_text().strip() == "Dining options":
+            dt = []
+            for j in i.findAll('li'):
+                dt.append(j.get_text().strip())
+
+            return (listToString(dt))
+        else:
+            return -1
+
+    return -1
+
+def getFeatures(soup):
+    for i in soup.find_all(class_='attribute-group'):
+        if i.find('h4').get_text().strip() == "Features":
+            dt = []
+            for j in i.findAll('li'):
+                dt.append(j.get_text().strip())
+
+            return (listToString(dt))
+        else:
+            return -1
+
+    return -1
+
+def getCleaningServices(soup):
+    for i in soup.find_all(class_='attribute-group'):
+        if i.find('h4').get_text().strip() == "Cleaning services":
+            dt = []
+            for j in i.findAll('li'):
+                dt.append(j.get_text().strip())
+
+            return (listToString(dt))
+        else:
+            return -1
+
+    return -1
+
+def getTechnologyAndEntertainment(soup):
+    for i in soup.find_all(class_='attribute-group'):
+        if i.find('h4').get_text().strip() == "Technology and entertainment":
+            dt = []
+            for j in i.findAll('li'):
+                dt.append(j.get_text().strip())
+
+            return (listToString(dt))
+        else:
+            return -1
+
+    return -1
+
+def getHealthServices(soup):
+    for i in soup.find_all(class_='attribute-group'):
+        if i.find('h4').get_text().strip() == "Health services":
+            dt = []
+            for j in i.findAll('li'):
+                dt.append(j.get_text().strip())
+
+            return (listToString(dt))
+        else:
+            return -1
+
+    return -1
+
+def getActivities(soup):
+    for i in soup.find_all(class_='attribute-group'):
+        if i.find('h4').get_text().strip() == "Activities":
+            dt = []
+            for j in i.findAll('li'):
+                dt.append(j.get_text().strip())
+
+            return (listToString(dt))
+        else:
+            return -1
+
+    return -1
+
+def getFinancialGuidance(soup):
+    for i in soup.find_all(class_='attribute-group'):
+        if i.find('h4').get_text().strip() == "Financial guidance":
+            dt = []
+            for j in i.findAll('li'):
+                dt.append(j.get_text().strip())
+
+            return (listToString(dt))
+        else:
+            return -1
+
+    return -1
+
+def getGuestServices(soup):
+    for i in soup.find_all(class_='attribute-group'):
+        if i.find('h4').get_text().strip() == "Guest services":
+            dt = []
+            for j in i.findAll('li'):
+                dt.append(j.get_text().strip())
+
+            return (listToString(dt))
+        else:
+            return -1
+
+    return -1
+
+def getLanguages(soup):
+    for i in soup.find_all(class_='attribute-group'):
+        if i.find('h4').get_text().strip() == "Languages":
+            dt = []
+            for j in i.findAll('li'):
+                dt.append(j.get_text().strip())
+
+            return (listToString(dt))
+        else:
+            return -1
+
+    return -1
+
+def getGeneral(soup):
+    for i in soup.find_all(class_='attribute-group'):
+        if i.find('h4').get_text().strip() == "General":
+            dt = []
+            for j in i.findAll('li'):
+                dt.append(j.get_text().strip())
+
+            return (listToString(dt))
+        else:
+            return -1
+
+    return -1
+
+def getTypesOfCare(soup):
+    for i in soup.find_all(class_='attribute-group'):
+        if i.find('h4').get_text().strip() == "Types of care":
+            dt = []
+            for j in i.findAll('li'):
+                dt.append(j.get_text().strip())
+
+            return (listToString(dt))
+        else:
+            return -1
+
+    return -1
