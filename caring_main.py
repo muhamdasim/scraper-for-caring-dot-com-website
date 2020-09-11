@@ -63,7 +63,7 @@ for i in urls:
         continue
 
 
-with open("apfm-data.csv", "w",newline='',encoding="utf-8") as csvFile:
+with open("caring-data.csv", "w",newline='',encoding="utf-8") as csvFile:
     fieldnames = ['url','pageTitle','metaDescription','communityReviews','communityStreetAddress','communityCity','communityState','communityZipCode','communityImages','communityContent','noOfReviews','averageProfileScore','careTypesProvided','communityAmenities','licenseNo']
     writer = csv.DictWriter(csvFile, fieldnames=fieldnames)
     writer.writeheader()
