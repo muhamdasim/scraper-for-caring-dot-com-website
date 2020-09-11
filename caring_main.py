@@ -58,14 +58,28 @@ for i in urls:
         imageTitle.append(scraper.getImageTitle(soup))
         communityContent.append(scraper.getCommunityContent(soup))
         averageReviewScore.append(scraper.getAverageReviewScore(soup))
-        roomHousingOptions.append(scraper.getROOMANDHOUSINGOPTIONS(soup))
+
+        costs.append(scraper.getCosts(soup))
+        roomHousingOptions.append(scraper.getROOMANDHOUSINGOPTIONS())
+        diningOptions.append(scraper.getDiningOptions(soup))
+        features.append(scraper.getFeatures(soup))
+        cleaningServices.append(scraper.getCleaningServices(soup))
+        techEntertainment.append(scraper.getTechnologyAndEntertainment(soup))
+
+
+        counter+=1
+        if counter==5:
+            break
     except:
+        print("Error")
         continue
 
+for i in roomHousingOptions:
+    print(i)
 
 with open("caring-data.csv", "w",newline='',encoding="utf-8") as csvFile:
-    fieldnames = ['url','pageTitle','metaDescription','communityReviews','communityStreetAddress','communityCity','communityState','communityZipCode','communityImages','communityContent','noOfReviews','averageProfileScore','careTypesProvided','communityAmenities','licenseNo']
+    fieldnames = ['url','pageTitle','metaDescription','communityName','communityStreetAddress','communityCity','communityState','communityZipCode','communityImages','altTags','imageTitle','communityContent','averageReviewScore','costs','roomHousingOptions','diningOptions','features','cleaningServices','techEntertainment','healthServices','activities','financialGuidance','guestServices','languages','general','typeOfCare','trainingAreas','licenses']
     writer = csv.DictWriter(csvFile, fieldnames=fieldnames)
     writer.writeheader()
-    for link,pTitle,mDescription,cReviews,cStreetAddress,cCity,cState,cCode,cImages,cContent,nReviews,aScore,cProvided,cAmenities,lNo in zip(url,pageTitle,communityReviews,metaDescription,communityStreetAddress,communityCity,communityState,communityZipCode,communityImages,communityContent,noOfReviews,averageProfileScore,careTypesProvided,communityAmenities,licenseNo):
-        writer.writerow({'url':link,'pageTitle':pTitle,'metaDescription':mDescription,'communityReviews':cReviews,'communityStreetAddress':cStreetAddress,'communityCity':cCity,'communityState':cState,'communityZipCode':cCode,'communityImages':cImages,'communityContent':cContent,'noOfReviews':nReviews,'averageProfileScore':aScore,'careTypesProvided':cProvided,'communityAmenities':cAmenities,'licenseNo':lNo})
+    for link,pT,mD,cN,cSA,cC,cS,cZC,cI,aT,iT,cCo,aRS,c,rHO,dO,f,cSer,tE,hS,a,fG,gS,l,g,tOC,tA,lic in zip(url,pageTitle,metaDescription,communityName,communityStreetAddress,communityCity,communityState,communityZipCode,communityImages,altTags,imageTitle,communityContent,averageReviewScore,costs,roomHousingOptions,diningOptions,features,cleaningServices,techEntertainment,healthServices,activities,financialGuidance,guestServices,languagues,general,typeOfCare,trainingAreas,licenses):
+        writer.writerow({'url':link,'pageTitle':pT,'metaDescription':mD,'communityName':cN,'communityStreetAddress':cSA,'communityCity':cC,'communityState':cS,'communityZipCode':cZC,'communityImages':cI,'altTags':aT,'imageTitle':iT,'communityContent':cCo,'averageReviewScore':aRS,'costs':c,'roomHousingOptions':rHO,'diningOptions':dO,'features':f,'cleaningServices':cSer,'techEntertainment':tE,'healthServices':hS,'activities':a,'financialGuidance':fG,'guestServices':gS,'languages':l,'general':g,'typeOfCare':tOC,'trainingAreas':tA,'licenses':lic})
