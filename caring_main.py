@@ -103,7 +103,7 @@ for i in urls:
         licenses.append(scraper.getLicenses(soup))
 
         counter += 1
-        if (counter%10)==1:
+        if (counter%100)==1:
             saveData()
     except:
         print("Error",i)
