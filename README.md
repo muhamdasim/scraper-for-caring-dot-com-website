@@ -26,3 +26,15 @@ Activities
 Guest Services
 General
 
+Features.
+
+Fast in speed.
+99.99% Efficient
+No Data Loss
+Automatically Save data after 500 urls chunk.
+
+
+Url Samples.
+
+https://www.caring.com/senior-living/washington/seattle/merrill-gardens-at-first-hill-98101
+https://www.caring.com/senior-living/florida/royal-palm-beach/cassies-castle-ii-33411
